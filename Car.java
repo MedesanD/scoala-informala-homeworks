@@ -9,6 +9,9 @@ public class Car implements ICar {
     private double kwBattery;
     private double consumption;
     private double price;
+    private boolean used;
+    private boolean inStock;
+
 
     //constructor
     public Car (){
@@ -19,8 +22,12 @@ public class Car implements ICar {
         this.kwBattery = 0;
         this.consumption = 0;
         this.price = 0;
+        this.used = false;
+        this.inStock = false;
+
     }
-    public Car (String model, String VIN, int year, double kwMotor, double kwBattery, double consumption, double price){
+    public Car (String model, String VIN, int year, double kwMotor, double kwBattery, double consumption, double price,
+                boolean used, boolean inStock){
         this.model = model;
         this.VIN = VIN;
         this.year = year;
@@ -28,6 +35,9 @@ public class Car implements ICar {
         this.kwBattery = kwBattery;
         this.consumption = consumption;
         this.price = price;
+        this.used = used;
+        this.inStock = inStock;
+
     }
 
     //Getter and Setter attributes
@@ -86,9 +96,26 @@ public class Car implements ICar {
     public void setPrice(double price) {
         this.price = price;
     }
+    public boolean isUsed() {
+        return used;
+    }
+
+    public void setUsed(boolean used) {
+        this.used = used;
+    }
+
+    public boolean isInStock() {
+        return inStock;
+    }
+
+    public void setInStock(boolean inStock) {
+        this.inStock = inStock;
+    }
+
 
     @Override
-    public Car addCar(String model, String VIN, int year, double kwMotor, double kwBattery, double consumption, double price) {
+    public Car addCar(String model, String VIN, int year, double kwMotor, double kwBattery,
+                      double consumption, double price) {
         Car car = new Car();
         car.setModel(model);
         car.setVIN(VIN);
@@ -100,3 +127,5 @@ public class Car implements ICar {
         return car;
     }
 }
+
+
